@@ -10,10 +10,11 @@
 }
 body{
   overflow-x: hidden;
-  background:purple;
+  background-color:purple;
 }
 
-/* elements */
+/* Header */
+
 .hero-page{
   min-height:100vh;
   width:100%;
@@ -31,14 +32,14 @@ body{
   padding:1rem 1rem  1rem 1rem;
   margin-bottom:2rem;
   background-color:white;
-  z-index:4;
+  z-index:5;
   font-weight: 600;
 }
 
 .logo{
   position:relative;
   left:10px;
-  height:50px;
+  height:3.5rem;
   width:auto;
 }
 .hamburger{
@@ -51,21 +52,22 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-family:"Poppins",Sans-Serif
   font-weight:400;
-  
 }
 
 .mobile-links{
-  position: fixed;
+  position:fixed;
   display:none;
   inset:0;
   background:#fff;
-  z-index:2;
+  z-index:4;
   opacity:0;
   transform: translateY(-10px);
   animation: fadeIn 0.5s ease forwards;
+  flex-direction: column;
+  min-height:100vh;
 }
 .mobile-links ul li::nth.child(1){
   animation-delay:0.2s ;
@@ -107,8 +109,11 @@ body{
 }
 .links{
   margin-top:5rem;
+  height: auto;
   width:100%;
   padding:0 2.2rem;
+  flex:1;
+  justify-content: center;
 }
 .nav-links{
   color:black;
@@ -127,6 +132,52 @@ body{
   font-family:Sans-Serif;
   font-weight:700;
 }
+.desktop-btn{
+  display:none;
+  border: none;
+  width:130px;
+  height:35px;
+  font-size:0.9rem;
+  border-radius:8px;
+  background-color:green;
+  color:white;
+  padding:0.5rem 0.25rem;
+  font-weight:600;
+  flex:0 0 auto;
+  justify-content: center;
+}
+.app-btn-wrapper{
+  display:flex;
+  justify-content: center;
+}
+.btn{
+  border:none;
+  border-radius: 14px;
+  position: relative;
+  margin-bottom:20px;
+  background-color:green;
+  color:white;
+  padding:0.5rem;
+  height:3rem;
+  font-size: 1.2rem;
+  font-weight:600;
+  width:90%;
+}
+
+.hero-bg {
+  min-height: 100vh;
+  width:100%;
+  background: url("./assets/bg.jpg") center/cover no-repeat;
+  z-index: 2;
+}
+.bg-layer{
+  content="";
+  position: absolute;
+  inset:0;
+  background:rgb(255,255,255,0.1);
+  backdrop-filter: blur(3px);
+  z-index:3;
+}
 
 /* responsiveness for desktop */
 
@@ -140,7 +191,9 @@ body{
     display:flex;
     gap:1rem;
   }
-  
+  .desktop-btn{
+    display:flex;
+  }
   .hamburger{
     display:none;
   }
