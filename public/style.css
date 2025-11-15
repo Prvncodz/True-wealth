@@ -187,14 +187,14 @@ body{
  top:17em;
  padding:1.5rem;
  color:white;
- font-family: Montserrat;
+ font-family: Montserrat,Sans-Serif;
 }
 .hero-page .text h1{
   font-size: 2.3rem;
   text-align:center;
   letter-spacing:-0.07rem;
   line-height:1.3;
-  font-weight:800;
+  font-weight:900;
 }
 .hero-page .text p{
   margin-top:1rem;
@@ -208,7 +208,7 @@ body{
   justify-content: center;
   width:100%;
   position: absolute;
-  margin-top:2.5rem;
+  margin-top:2.8rem;
   top: 30rem;
   height:auto;
   z-index: 4;
@@ -243,7 +243,7 @@ body{
 .swift-glance .text p{
   margin-top:0.8rem;
 }
-.cards{
+.counters{
   height:auto;
   margin:2rem;
   display:flex;
@@ -251,7 +251,7 @@ body{
   justify-content: center;
   align-items:center;
 }
-.card{
+.counter{
   height:9rem;
   width:19rem;
   border-radius:10px;
