@@ -21,7 +21,7 @@ window.addEventListener("scroll",()=>{
         }else if(target<1100){
           count+=15;
         }else{
-          count+=50;
+          count+=40;
         }
         
         if(count>=target){
@@ -30,7 +30,7 @@ window.addEventListener("scroll",()=>{
         }else{
           c.innerText=count;
         }
-      },20);
+      },30);
     });
     isActive=true;
   }
