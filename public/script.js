@@ -3,7 +3,7 @@ const links=document.getElementById("mobile-links");
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
 const cardContainer=document.getElementById("cardsContainer");
-
+const faqCards=document.querySelectorAll(".faq-card")
 
 
 button.addEventListener('click', () => {
@@ -53,4 +53,13 @@ function scrollCards(dir){
       behaviour:"smooth",
     });
   }
+}
+
+function toggleFAQ(card){
+  faqCards.forEach((c)=>{
+    if(c!==card){
+      c.classList.remove("active");
+    }
+  });
+  card.classList.toggle("active");
 }
