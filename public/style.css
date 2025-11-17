@@ -260,6 +260,11 @@ body{
   justify-content: center;
   align-items:center;
   text-align:center;
+  transition:all 0.3s ease;
+}
+.counter:hover{
+  transform:translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); 
 }
 .counter h1{
   font-weight:600;
@@ -572,7 +577,7 @@ body{
 
 
 
-/* responsiveness for desktop */
+/* responsiveness for desktop and ipad */
 
 @media (min-width:768px){
   .hero-page{
