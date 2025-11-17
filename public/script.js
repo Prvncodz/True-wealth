@@ -2,6 +2,10 @@ const button=document.getElementById("menu-btn");
 const links=document.getElementById("mobile-links");
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
+const cardContainer=document.getElementById("cardsContainer");
+
+
+
 button.addEventListener('click', () => {
   const isOpen=button.classList.toggle("open");
   button.innerHTML=isOpen? "✕" :"☰" ;
@@ -35,3 +39,18 @@ window.addEventListener("scroll",()=>{
     isActive=true;
   }
 });
+
+function scrollCards(dir){
+  const scrollAmount=400;
+  if(dir=="left"){
+    cardContainer.scrollBy({
+      left:-scrollAmount,
+      behaviour:"smooth",
+    });
+  }else{
+   cardContainer.scrollBy({
+      left:scrollAmount,
+      behaviour:"smooth",
+    });
+  }
+}
