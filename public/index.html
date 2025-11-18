@@ -9,44 +9,9 @@
 </head>
 <body>
     <header class="hero-page" >
-      <nav class="nav">
-        <img src="assets/logo.png" alt="logo" class="logo">
-        
-         <button type="button" class="hamburger" id="menu-btn">
-          ☰
-        </button>
-
-         <ul class="nav-links " id="nav-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href=#>Insights</a></li>
-            <li><a href=#>Feedback</a></li>
-            <li><a href=#>Contact us</a></li>
-            <li></li>
-            
-          </ul>
-                 <button type="button" href="#" class="desktop-btn" id="getapp-btn">
-          Get the app
-        </button>
-       
-     </nav>  
-    <div class="mobile-links" id="mobile-links">
-          <div class="links">
-                     <ul>
-            <li><a href="#">About Us</a></li>
-            <div class="line-break"></div>
-            <li><a href="#">Services</a></li>
-            <li><a href=#>Insights</a></li>
-            <li><a href=#>Feedback</a></li>
-            <li><a href=#>Contact us</a></li>
-          </ul>
-           </div>
-         <div class="app-btn-wrapper">
-            <button type="button" class="btn" id="getapp-btn">
-          Get the app
-        </button>
-      </div>
-      </div>
+         <div id="nav-placeholder"></div>
+        <script src="./utils/loadnav.js"></script>
+       <section class="hero-page">
         <div class="hero-bg"></div>
         <div class="bg-layer"></div>
         <div class="text">
@@ -57,7 +22,9 @@
            <button type="button" href="#" class="get-started-btn" id="get-started-btn">
           Get a Callback →
         </button>
-        </div>
+        </div>         
+       </section>
+
           
     </header>
     <section class="swift-glance">
@@ -1076,7 +1043,7 @@
         </div>
     </section>
     <footer id="footer-placeholder"></footer>
+    <script src="./utils/loadfooter.js"></script>
     <script src="script.js"></script>
-    <script src="loadfooter.js"></script>
 </body>
 </html>
