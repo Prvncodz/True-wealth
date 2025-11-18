@@ -1,20 +1,22 @@
 import express from "express"
 import cors from "cors"
 import path from "path"
-import dotenv from "dotenv"
 import { dbConn } from "./mongo.db.js"
 import {User} from "./user.model.js"
+import {fileURLToPath} from 'url'
 
 const app=express()
 //configs
 app.use(express.static("public"))
 app.use(cors({
   origin:process.env.CORS_ORIGIN,
-  credintials:true
+  credentials:true
 }))
 app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 
+const __filename=fileURLToPath(import.meta.url)
+const __dirname=path.dirname(__filename)
 
 dbConn
 .then(()=>{
@@ -22,6 +24,15 @@ dbConn
     app.listen(process.env.PORT||8000,(req,res)=>{
       console.log("server running at port:",process.env.PORT)
     })
+
+    app.get("/disclaimer",(req,res)=>{
+      const file=path.join(__dirname,"..","public","disclaimer.html")
+    return res.sendFile(file);
+    })
+    
+    app.get("/disclosure",(req,res)=>{                   const file=path.join(__dirname,"..","public","disclosure.html")
+        return res.sendFile(file);
+})
 
     app.post("/form",async (req,res)=>{
      const {name,email,number}=req.body;
