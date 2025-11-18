@@ -887,8 +887,134 @@ body{
 }
 
 /* disclosure page*/
+.disclosure-page {
+    min-height: 100vh;
+    padding: 1rem 0;
+    background-color: #f5f5f5;
+}
 
-/* responsiveness for desktop and ipad */
+.disclosure-page .container {
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.disclosure-page h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: left;
+    padding: 0 0.5rem;
+}
+
+.disclosure-section {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.disclosure-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #2c5f2d;
+    line-height: 1.4;
+}
+
+.disclosure-section p {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.disclosure-section a {
+    color: green;
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.commission-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.commission-card {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.commission-card h3 {
+    font-size: 1.1rem;
+    color: #2c5f2d;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.commission-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.commission-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.commission-row .label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.commission-row .value {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.note {
+    background-color: #fff9e6;
+    padding: 1rem;
+    border-left: 4px solid #ffa500;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.info-box {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.info-box p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* Large Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .disclosure-page .container {
+        max-width: 1000px;
+    }
+}
+/* responsive for Desktop and Tablets */
 
 @media (min-width:768px){
   .hero-page{
@@ -1017,6 +1143,61 @@ body{
     
     .disclaimer-section h2 {
         font-size: 1.3rem;
+    }
+    .disclosure-page {
+        padding: 2rem 0;
+    }
+    
+    .disclosure-page .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .disclosure-page h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .disclosure-section {
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .disclosure-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .disclosure-section p {
+        font-size: 1rem;
+    }
+    
+    .commission-cards {
+        gap: 1.5rem;
+    }
+    
+    .commission-card {
+        padding: 1.5rem;
+    }
+    
+    .commission-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .commission-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .commission-row .label {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+    
+    .commission-row .value {
+        font-size: 1.1rem;
     }
 }
 
