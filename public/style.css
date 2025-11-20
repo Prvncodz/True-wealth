@@ -8,13 +8,13 @@
   box-sizing: border-box;
 }
 body{
-  overflow-x: hidden;
-  background-color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+   overflow-x: hidden;
+   background-color: white;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
 }
 
-/* Header */
+/* Main Header  */
 
 .hero-page{
   min-height:100vh;
@@ -22,6 +22,8 @@ body{
   position:relative;
 }
 
+
+/* nav bar */
 .nav{
   position:sticky;
   top:0;
@@ -38,8 +40,9 @@ body{
 
 .nav .logo{
   position:relative;
-  left:10px;
-  height:45px;
+  top:5px;
+  left:8px;
+  height:63px;
   width:auto;
 }
 .hamburger{
@@ -74,6 +77,7 @@ body{
 
 .mobile-links li{
   list-style: none;
+  text-align: left;
   line-height:1.4;
   letter-spacing: -0.9px;
   margin-top:1rem;
@@ -153,6 +157,7 @@ body{
   width:90%;
 }
 
+/* Main page */
 .hero-bg {
   min-height: 100vh;
   width:100%;
@@ -165,16 +170,19 @@ body{
   content="";
   position: absolute;
   inset:0;
-  background:rgb(0,0,0,0.6);
+  background:rgb(0,0,0,0.4);
   z-index:3;
 }
 .hero-page .text{
  position: absolute;
+ text-align: center;
  z-index: 4;
  top:17em;
  padding:1.5rem;
  color:white;
- font-family: Montserrat,Sans-Serif;
+ font-family: Segoe UI,Sans-Serif;
+ height:auto;
+ width:100%;
 }
 .hero-page .text h1{
   font-size: 2.3rem;
@@ -189,28 +197,6 @@ body{
   text-align:center;
   line-height:1.6;
   font-weight:400;
-}
-.hero-page .get-started-btn-wrapper{
-  display:flex;
-  justify-content: center;
-  width:100%;
-  position: absolute;
-  margin-top:2.8rem;
-  top: 32rem;
-  height:auto;
-  z-index: 4;
-}
-.hero-page .get-started-btn{
-  border:none;
-  border-radius: 14px;
-  position: absolute;
-  background-color:#ffff;
-  color:rgb(0,0,0,0.6)
-  padding:0.5rem;
-  height:3rem;
-  font-size: 1.2rem;
-  font-weight:700;
-  width:90%;
 }
 
 /* section for swift glance*/
@@ -514,7 +500,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
-	animation: scrollUp 40s linear infinite;
+	animation: scrollUp 30s linear infinite;
 }
 
 .feedback-track:hover {
@@ -886,7 +872,7 @@ body{
     color: #2c5f2d;
 }
 
-/* disclosure page*/
+/* disclosure page */
 .disclosure-page {
     min-height: 100vh;
     padding: 1rem 0;
@@ -1006,8 +992,93 @@ body{
     margin-bottom: 0;
 }
 
+/* About us page*/
+ /* Header */
+ 
+.about-us-heropg{
+ 	position: relative;
+ 	align-items: center;
+ 	justify-content: center;
+ 	overflow-x:hidden;
+ 	text-align: center;
+ }
+.about-us-heropg .bg{
+ 	position: relative;
+ 	background: url("./assets/bd.jpg") center/cover no-repeat;
+ 	height:18rem;
+ 	width:100%;
+  z-index: 0;
+  text-align: center;
+ }
+.about-us-heropg h2{
+  position: absolute;
+   text-align: center;
+ 	 line-height: 1.4;
+ 	 z-index: 4;
+ 	 font-size:2rem;
+ 	 padding:1.5rem;
+ 	 margin:0 auto;
+ 	 bottom:10%;
+ 	 color:#ffff;
+ 	 font-weight:bold;
+ 	 width:100%;
+ }
+ /* Our Story Section */
+.our-story-section {
+	background-color: #f9fafb;
+	padding: 3rem 1.25rem;
+}
 
+.our-story-section .container {
+	max-width: 1200px;
+	margin: 20px auto 10px auto;
+}
 
+.our-story-section .section-title {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #059669;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.text-content {
+	color: #4b5563;
+	font-size: 1rem;
+	line-height: 1.8;
+	text-align: left;
+}
+
+.text-content p {
+	margin-bottom: 1.5rem;
+}
+
+.timeline{
+  padding: 20px 30px;
+  margin:30px 0;
+  background: yellow;
+  height:auto;
+  width:100%;
+}
+.timeline .tl-container{
+	background: rgb(0,0,0,0.7);
+	width:100%;
+	position: relative;
+	border-left:1px solid rgb(0,0,0,0.7);
+}
+.timeline .tl-textbox{
+	width:60%;
+	height:auto;
+	padding:5px;
+	position:relative;
+	left:20%;
+}
+.timeline .icon{
+	height:5px;
+	width:5px;
+}
+ 
+ 
 /* Large Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
     .disclosure-page .container {
@@ -1018,7 +1089,14 @@ body{
 
 @media (min-width:768px){
   .hero-page{
-    min-height:100vh;
+      min-height:80vh;
+      display:flex;
+      justify-content: center;
+      flex-direction: column;
+  }
+  .hero-page .text{
+  	text-align: center;
+  	align-text:center;
   }
   .hero-bg{
     min-height:100vh;
@@ -1035,10 +1113,7 @@ body{
     display:flex;
   }
   .hamburger{
-    display:none;
-  }
-  .hero-page .get-started-btn{
-    width:20%;
+    display:none !important;
   }
   
   .swift-glance .counter{
@@ -1085,10 +1160,10 @@ body{
      flex:1;
    }
     .feedback-column-up .feedback-track{
-     animation:scrollUp 40s linear infinite;
+     animation:scrollUp 30s linear infinite;
    }
 	 .feedback-column-down .feedback-track{
-     animation:scrollDown 40s linear infinite;
+     animation:scrollDown 30s linear infinite;
    }
   .feedback-column-1 .feedback-track:hover {
 	animation-play-state: paused;
@@ -1199,6 +1274,28 @@ body{
     .commission-row .value {
         font-size: 1.1rem;
     }
+    
+    .about-us-heropg h2{
+    	font-size:1.8rem;
+    	bottom:20%;
+    }
+ 	.our-story-section {
+		padding: 4rem 2rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.text-content {
+		font-size: 1.125rem;
+		line-height: 1.9;
+	}
+
+	.text-content p {
+		margin-bottom: 2rem;
+	}   	
 }
 
 /* animations */

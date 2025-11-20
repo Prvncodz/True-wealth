@@ -2,23 +2,47 @@ const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
 const cardContainer=document.getElementById("cardsContainer");
 const faqCards=document.querySelectorAll(".faq-card")
-
+const showTlTextBox=document.getElementById("tl-show-text")
 
 
 let isActive=false;
 window.addEventListener("scroll",()=>{
   
-  if(pageYOffset> counterContainer.offsetTop- counterContainer.offsetHeight - 200 && isActive===false){
+  if(pageYOffset> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
     counters.forEach(c=>{
       const target=c.dataset.target;
       let count=0;
+      if(target<20){
+          
+          const interval= setInterval(()=>{
+         count+=1;
+        
+        if(count>=target){
+          c.innerText=target;
+          clearInterval(interval);
+        }else{
+          c.innerText=count;
+        }
+      },300);
+        }
+      else if(target<60){
+          
+          const interval= setInterval(()=>{
+         count+=1;
+        
+        if(count>=target){
+          c.innerText=target;
+          clearInterval(interval);
+        }else{
+          c.innerText=count;
+        }
+      },50);
+        }else {
       const interval= setInterval(()=>{
-        if(target<60){
-          count+=1;
-        }else if(target<1100){
+        if(target<1100){
           count+=15;
         }else{
-          count+=40;
+          count+=50;
         }
         
         if(count>=target){
@@ -27,7 +51,8 @@ window.addEventListener("scroll",()=>{
         }else{
           c.innerText=count;
         }
-      },30);
+      },40);
+        }
     });
     isActive=true;
   }

@@ -7,7 +7,6 @@ import {fileURLToPath} from 'url'
 
 const app=express()
 //configs
-app.use(express.static("public"))
 app.use(cors({
   origin:process.env.CORS_ORIGIN,
   credentials:true
@@ -20,19 +19,22 @@ const __dirname=path.dirname(__filename)
 
 dbConn
 .then(()=>{
+     
+    app.get("/",(req,res)=>{
+      const file=path.join(__dirname,"..","public","index.html");
+      console.log("home endpoint called")
+      return res.sendFile(file);
 
-    app.listen(process.env.PORT||8000,(req,res)=>{
-      console.log("server running at port:",process.env.PORT)
-    })
+    });
 
     app.get("/disclaimer",(req,res)=>{
-      const file=path.join(__dirname,"..","public","disclaimer.html")
-    return res.sendFile(file);
-    })
+      const file=path.join(__dirname,"..","public","disclaimer.html");
+      return res.sendFile(file);
+    });
     
-    app.get("/disclosure",(req,res)=>{                   const file=path.join(__dirname,"..","public","disclosure.html")
+    app.get("/disclosure",(req,res)=>{                   const file=path.join(__dirname,"..","public","disclosure.html");
         return res.sendFile(file);
-})
+});
 
     app.post("/form",async (req,res)=>{
      const {name,email,number}=req.body;
@@ -57,11 +59,14 @@ dbConn
       success:true
         })
     });
+    
+    app.listen(process.env.PORT||8000,(req,res)=>{       console.log("server running at port:",process.env.PORT)                                
+    });
 
     app.on("error",()=>{
       console.log("server failed to run")
-    })
-
+    });
+     
   })
 
 .catch(error=>{
