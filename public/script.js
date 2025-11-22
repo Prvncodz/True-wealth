@@ -1,9 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+	
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
 const cardContainer=document.getElementById("cardsContainer");
 const faqCards=document.querySelectorAll(".faq-card")
 const showMoreContent=document.querySelectorAll(".timeline-content")
-
+const valueCards=document.querySelectorAll(".value-card")
 let isActive=false;
 window.addEventListener("scroll",()=>{
   
@@ -55,6 +57,7 @@ window.addEventListener("scroll",()=>{
     });
     isActive=true;
   }
+  
 });
 
 function scrollCards(dir){
@@ -90,3 +93,25 @@ function toggleTlText(cont){
 	})
 	  	cont.classList.toggle("active")
 }
+
+const observer=new IntersectionObserver((entries)=>{
+  	 entries.forEach(entry=>{
+  	 	if(entry.isIntersecting){
+  	 		entry.target.style.transform="translateY(0)";
+  	 		entry.target.style.opacity="1"
+  	 	}
+  	 });
+  },{threshold:0.1});
+  
+  valueCards.forEach((card,index)=>{
+  	card.setAttribute("style", 
+  	`opacity:0;  
+  	transform:translateY(20px);
+  	animation:translate 0.4s ease-in;
+  	animation-delay:${index*0.1}s;`
+  	);
+  	observer.observe(card);
+  })
+  
+  
+});
