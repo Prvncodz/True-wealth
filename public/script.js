@@ -2,8 +2,7 @@ const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
 const cardContainer=document.getElementById("cardsContainer");
 const faqCards=document.querySelectorAll(".faq-card")
-const showTlTextBox=document.getElementById("tl-show-text")
-
+const showMoreContent=document.querySelectorAll(".timeline-content")
 
 let isActive=false;
 window.addEventListener("scroll",()=>{
@@ -80,4 +79,14 @@ function toggleFAQ(card){
     }
   });
   card.classList.toggle("active");
+}
+
+
+function toggleTlText(cont){
+	showMoreContent.forEach(c=>{
+		if(c!==cont){
+			c.classList.remove("active")
+		}
+	})
+	  	cont.classList.toggle("active")
 }
