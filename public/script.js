@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-	
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counters");
 const cardContainer=document.getElementById("cardsContainer");
@@ -113,5 +111,4 @@ const observer=new IntersectionObserver((entries)=>{
   	observer.observe(card);
   })
   
-  
-});
+ 

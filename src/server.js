@@ -35,6 +35,26 @@ dbConn
     app.get("/disclosure",(req,res)=>{                   const file=path.join(__dirname,"..","public","disclosure.html");
         return res.sendFile(file);
 });
+    app.get("/aboutus",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","aboutus.html");
+        return res.sendFile(file);
+});
+    app.get("/services",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","services.html");
+        return res.sendFile(file);
+});
+    app.get("/insights",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","insights.html");
+        return res.sendFile(file);
+});
+    app.get("/feedback",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","feedback.html");
+        return res.sendFile(file);
+});
+    app.get("/contactus",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","contactus.html");
+        return res.sendFile(file);
+});
 
     app.post("/form",async (req,res)=>{
      const {name,email,number}=req.body;
