@@ -120,31 +120,96 @@ const observer=new IntersectionObserver((entries)=>{
   })
   
   
- Form.addEventListener("submit",async(e)=>{
- 	e.preventDefault();
-  try {
- 	const formData= new FormData(Form);
- 	const jsonData=Object.fromEntries(formData);
- 	
- 	const res=await fetch("http://localhost:8000/form",{
- 		method:"POST",
- 		headers:{
- 			"Content-Type":"application/json"
- 		},
- 		body:JSON.stringify(jsonData)
- 	})
-     console.log("RESPONSE:", res.status);
- 	   const output=await res.json();
-      if(res.ok){
- 	   Form.reset();
-     alert("form submitted successfully")
-      }else{
-        alert("error while fetching");
+ if (Form) {
+    Form.addEventListener("submit", async (e) => {
+        e.preventDefault();
         
-      }
-    }catch(error){
-      alert("Network error while fetching");
+        // Show loading popup
+        showPopup('loading');
+        
+        const formData = new FormData(Form);
+        const jsonData = Object.fromEntries(formData);
+        
+        try {
+            const res = await fetch("http://localhost:8000/form", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(jsonData)
+            });
+            
+            const output = await res.json();
+            
+            if (res.ok) {
+                // Success
+                showPopup('success');
+                Form.reset(); // Clear the form
+            } else {
+                // Error from server
+                showPopup('error', output.message || 'Something went wrong');
+            }
+            
+        } catch (error) {
+            // Network error
+            showPopup('error', 'Network error. Please check your connection.');
+        }
+    });
+}
+
+function showPopup(type, message = '') {
+    const overlay = document.getElementById('contactPopup');
+    const content = document.getElementById('contactPopupContent');
+    
+    if (type === 'loading') {
+        content.innerHTML = `
+            <div class="tw-contact-popup-spinner"></div>
+            <div class="tw-contact-popup-loading-text">Submitting...</div>
+        `;
+        overlay.classList.add('active');
+    } 
+    else if (type === 'success') {
+        content.innerHTML = `
+            <div class="tw-contact-popup-icon success">✓</div>
+            <div class="tw-contact-popup-title success">Details Submitted!</div>
+            <div class="tw-contact-popup-message">
+                Thank you for contacting us. We'll get back to you soon.
+            </div>
+        `;
+        
+        // Auto close after 3 seconds
+        setTimeout(() => {
+            closePopup();
+        }, 3000);
+    } 
+    else if (type === 'error') {
+        content.innerHTML = `
+            <div class="tw-contact-popup-icon error">✕</div>
+            <div class="tw-contact-popup-title error">Error While Submitting</div>
+            <div class="tw-contact-popup-message">
+                ${message || 'Please try again later.'}
+            </div>
+        `;
+        
+        // Auto close after 4 seconds
+        setTimeout(() => {
+            closePopup();
+        }, 4000);
     }
- });
+    
+    overlay.classList.add('active');
+}
+
+function closePopup() {
+    const overlay = document.getElementById('contactPopup');
+    overlay.classList.remove('active');
+}
+
+// Close popup when clicking outside
+document.getElementById('contactPopup')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
  
 });
