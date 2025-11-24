@@ -2,9 +2,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counter-container");
-const cardContainer=document.getElementById("cardsContainer");
-const faqCards=document.querySelectorAll(".faq-card")
-const showMoreContent=document.querySelectorAll(".timeline-content")
 const valueCards=document.querySelectorAll(".value-card")
 const Form=document.getElementById("mform");
 
@@ -65,40 +62,6 @@ console.log("TYPE:", typeof counterContainer);
   }
   
 });
-
-function scrollCards(dir){
-  const scrollAmount=400;
-  if(dir=="left"){
-    cardContainer.scrollBy({
-      left:-scrollAmount,
-      behaviour:"smooth",
-    });
-  }else{
-   cardContainer.scrollBy({
-      left:scrollAmount,
-      behaviour:"smooth",
-    });
-  }
-}
-
-function toggleFAQ(card){
-  faqCards.forEach((c)=>{
-    if(c!==card){
-      c.classList.remove("active");
-    }
-  });
-  card.classList.toggle("active");
-}
-
-
-function toggleTlText(cont){
-	showMoreContent.forEach(c=>{
-		if(c!==cont){
-			c.classList.remove("active")
-		}
-	})
-	  	cont.classList.toggle("active")
-}
 
 const observer=new IntersectionObserver((entries)=>{
   	 entries.forEach(entry=>{
@@ -213,3 +176,40 @@ document.getElementById('contactPopup')?.addEventListener('click', function(e) {
 });
  
 });
+
+	const cardContainer=document.getElementById("cardsContainer");
+const faqCards=document.querySelectorAll(".faq-card")
+const showMoreContent=document.querySelectorAll(".timeline-content")
+function scrollCards(dir){
+  const scrollAmount=400;
+  if(dir=="left"){
+    cardContainer.scrollBy({
+      left:-scrollAmount,
+      behaviour:"smooth",
+    });
+  }else{
+   cardContainer.scrollBy({
+      left:scrollAmount,
+      behaviour:"smooth",
+    });
+  }
+}
+
+function toggleFAQ(card){
+  faqCards.forEach((c)=>{
+    if(c!==card){
+      c.classList.remove("active");
+    }
+  });
+  card.classList.toggle("active");
+}
+
+
+function toggleTlText(cont){
+	showMoreContent.forEach(c=>{
+		if(c!==cont){
+			c.classList.remove("active")
+		}
+	})
+	  	cont.classList.toggle("active")
+}
