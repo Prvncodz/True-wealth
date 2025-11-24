@@ -118,7 +118,7 @@ const observer=new IntersectionObserver((entries)=>{
   	);
   	observer.observe(card);
   })
-  console.log("SENDING REQUEST TO:", "http://localhost:8000/form");
+  
   
  Form.addEventListener("submit",async(e)=>{
  	e.preventDefault();
@@ -135,7 +135,7 @@ const observer=new IntersectionObserver((entries)=>{
  	})
     console.log("RESPONSE:", res.status);
  	const output=await res.json();
- 	console.log(output);
+ 	Form.reset();
  });
  
 });
