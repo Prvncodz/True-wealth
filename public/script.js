@@ -131,7 +131,7 @@ const observer=new IntersectionObserver((entries)=>{
         const jsonData = Object.fromEntries(formData);
         
         try {
-            const res = await fetch("http://localhost:8000/form", {
+            const res = await fetch("https://wms-um5i.onrender.com/form", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
