@@ -10,9 +10,7 @@ let isActive=false;
 
 
 window.addEventListener("scroll",()=>{
-  console.log("COUNTER:", counterContainer);
-console.log("TYPE:", typeof counterContainer);
-  if(scrollY> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
+ if(counterContainer){ if(scrollY> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
     counters.forEach(c=>{
       const target=c.dataset.target;
       let count=0;
@@ -60,7 +58,7 @@ console.log("TYPE:", typeof counterContainer);
     });
     isActive=true;
   }
-  
+ }
 });
 
 const observer=new IntersectionObserver((entries)=>{
