@@ -122,7 +122,6 @@ const observer=new IntersectionObserver((entries)=>{
   
  Form.addEventListener("submit",async(e)=>{
  	e.preventDefault();
- 	console.log("form is submited successfully")
   try {
  	const formData= new FormData(Form);
  	const jsonData=Object.fromEntries(formData);
@@ -138,13 +137,13 @@ const observer=new IntersectionObserver((entries)=>{
  	   const output=await res.json();
       if(res.ok){
  	   Form.reset();
-     console.log("form submitted successfully")
+     alert("form submitted successfully")
       }else{
-        console.error("error while fetching",errr.message);
+        alert("error while fetching");
         
       }
     }catch(error){
-      console.error("network error from seversite");
+      alert("Network error while fetching");
     }
  });
  
