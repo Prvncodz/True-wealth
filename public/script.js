@@ -120,8 +120,8 @@ const observer=new IntersectionObserver((entries)=>{
   })
   console.log("SENDING REQUEST TO:", "http://localhost:8000/form");
   
- Form.addEventListener("submit",async()=>{
- 	Form.preventDefault();
+ Form.addEventListener("submit",async(e)=>{
+ 	e.preventDefault();
  	console.log("form is submited successfully")
  	const formData= new FormData(Form);
  	const jsonData=Object.fromEntries(formData);
