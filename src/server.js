@@ -22,7 +22,6 @@ dbConn
      
     app.get("/",(req,res)=>{
       const file=path.join(__dirname,"..","public","index.html");
-      console.log("home endpoint called")
       return res.sendFile(file);
 
     });
@@ -32,7 +31,8 @@ dbConn
       return res.sendFile(file);
     });
     
-    app.get("/disclosure",(req,res)=>{                   const file=path.join(__dirname,"..","public","disclosure.html");
+    app.get("/disclosure",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","disclosure.html");
         return res.sendFile(file);
 });
     app.get("/aboutus",(req,res)=>{                   const
@@ -47,8 +47,8 @@ dbConn
     file=path.join(__dirname,"..","public","insights.html");
         return res.sendFile(file);
 });
-    app.get("/feedback",(req,res)=>{                   const
-    file=path.join(__dirname,"..","public","feedback.html");
+    app.get("/careers",(req,res)=>{                   const
+    file=path.join(__dirname,"..","public","careers.html");
         return res.sendFile(file);
 });
     app.get("/contactus",(req,res)=>{                   const
@@ -57,7 +57,7 @@ dbConn
 });
 
     app.post("/form",async (req,res)=>{
-     const {name,email,number}=req.body;
+     const {name,email,number,message}=req.body;
      if(!name){
         console.log("name is required to submit request")
       }
@@ -67,15 +67,17 @@ dbConn
       const user= await User.create({
         name,
         email:email?email:"",
-        number
+        number,
+        message:message?message:""
       })
       if(!user){
         console.log("unable to create user")
       }
+       console.log(user)
       return res
       .status(200)
       .json({
-      message:"user details submitted successfully",
+      message:"user details submitted successfully",user,
       success:true
         })
     });

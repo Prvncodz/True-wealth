@@ -39,8 +39,8 @@ body{
 .nav .logo{
   position:relative;
   top:5px;
-  left:8px;
-  height:65px;
+  left:5px;
+  height:63px;
   width:auto;
 }
 .hamburger{
@@ -161,7 +161,8 @@ body{
   width:100%;
   position:relative;
   top:0;
-  background: url("./assets/bg.jpg") center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%,
+            rgba(0, 0, 0, 0.9) 100%),url("./assets/bg.jpg") center/cover no-repeat;
   z-index: 2;
 }
 .bg-layer{

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Wealth - Careers</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .tw-careers-wrapper * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .tw-careers-wrapper {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .tw-careers-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .tw-careers-hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 48px;
+        }
+
+        .tw-careers-hero-content {
+            max-width: 800px;
+        }
+
+        .tw-careers-hero-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tw-careers-content-wrapper {
+            padding: 0 16px 32px;
+        }
+
+        .tw-careers-culture-section {
+            margin-bottom: 48px;
+        }
+
+        .tw-careers-culture-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #059669;
+            text-align: center;
+        }
+
+        .tw-careers-culture-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .tw-careers-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .tw-careers-image-wrapper {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+        }
+
+        .tw-careers-image-wrapper.tw-careers-main-image {
+            grid-column: 1;
+        }
+
+        .tw-careers-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tw-careers-image-wrapper.tw-careers-main-image .tw-careers-image {
+            height: 300px;
+        }
+
+        .tw-careers-image-wrapper.tw-careers-side-image .tw-careers-image {
+            height: 220px;
+        }
+
+        .tw-careers-view-all-button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 24px auto 40px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tw-careers-view-all-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .tw-careers-roles-section {
+            margin-top: 0;
+        }
+
+        .tw-careers-roles-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .tw-careers-roles-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #059669;
+        }
+
+        .tw-careers-roles-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        .tw-careers-table-wrapper {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);
+        }
+
+        .tw-careers-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tw-careers-table-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .tw-careers-table-header-cell {
+            padding: 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tw-careers-table-header-cell:last-child {
+            text-align: right;
+        }
+
+        .tw-careers-table-row {
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.2s ease;
+        }
+
+        .tw-careers-table-row:hover {
+            background-color: #f0fdf4;
+        }
+
+        .tw-careers-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .tw-careers-table-cell {
+            padding: 18px 16px;
+            font-size: 0.9375rem;
+            color: #1f2937;
+        }
+
+        .tw-careers-table-cell:last-child {
+            text-align: right;
+        }
+
+        .tw-careers-view-details-link {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .tw-careers-view-details-link:hover {
+            color: #059669;
+            text-decoration: underline;
+        }
+
+        .tw-careers-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .tw-careers-modal-overlay.tw-careers-modal-active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tw-careers-modal {
+            background: white;
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            margin: auto;
+        }
+
+        .tw-careers-modal-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 24px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .tw-careers-modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tw-careers-modal-location {
+            font-size: 0.9375rem;
+            opacity: 0.95;
+        }
+
+        .tw-careers-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .tw-careers-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .tw-careers-modal-body {
+            padding: 24px;
+        }
+
+        .tw-careers-modal-section {
+            margin-bottom: 24px;
+        }
+
+        .tw-careers-modal-section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        .tw-careers-modal-text {
+            font-size: 0.9375rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .tw-careers-modal-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .tw-careers-modal-list-item {
+            font-size: 0.9375rem;
+            color: #4b5563;
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .tw-careers-modal-list-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .tw-careers-modal-footer {
+            padding: 20px 24px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tw-careers-modal-button {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .tw-careers-modal-button-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .tw-careers-modal-button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .tw-careers-modal-button-secondary {
+            background: white;
+            color: #059669;
+            border: 2px solid #10b981;
+        }
+
+        .tw-careers-modal-button-secondary:hover {
+            background: #f0fdf4;
+        }
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            .tw-careers-hero {
+                height: 450px;
+            }
+
+            .tw-careers-hero-title {
+                font-size: 3rem;
+            }
+
+            .tw-careers-content-wrapper {
+                max-width: 720px;
+                margin: 0 auto;
+                padding: 0 32px 48px;
+            }
+
+            .tw-careers-culture-section {
+                margin-bottom: 64px;
+            }
+
+            .tw-careers-culture-title {
+                font-size: 2.5rem;
+            }
+
+            .tw-careers-culture-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .tw-careers-gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-bottom: 40px;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-main-image {
+                grid-column: 1 / -1;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-main-image .tw-careers-image {
+                height: 350px;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-side-image .tw-careers-image {
+                height: 280px;
+            }
+
+            .tw-careers-view-all-button {
+                max-width: 320px;
+                font-size: 1.0625rem;
+            }
+
+            .tw-careers-roles-header {
+                margin-bottom: 40px;
+            }
+
+            .tw-careers-roles-title {
+                font-size: 2.5rem;
+            }
+
+            .tw-careers-roles-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .tw-careers-table-header-cell {
+                padding: 20px 24px;
+                font-size: 0.9375rem;
+            }
+
+            .tw-careers-table-cell {
+                padding: 22px 24px;
+                font-size: 1rem;
+            }
+
+            .tw-careers-modal-title {
+                font-size: 1.75rem;
+            }
+
+            .tw-careers-modal-body {
+                padding: 32px;
+            }
+
+            .tw-careers-modal-footer {
+                padding: 24px 32px;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .tw-careers-hero {
+                height: 500px;
+            }
+
+            .tw-careers-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .tw-careers-content-wrapper {
+                max-width: 1100px;
+                padding: 0 40px 64px;
+            }
+
+            .tw-careers-culture-section {
+                margin-bottom: 80px;
+            }
+
+            .tw-careers-culture-title {
+                font-size: 3rem;
+            }
+
+            .tw-careers-culture-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .tw-careers-gallery {
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 20px;
+                margin-bottom: 56px;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-main-image {
+                grid-column: 1;
+                grid-row: 1 / 3;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-main-image .tw-careers-image {
+                height: 100%;
+                min-height: 500px;
+            }
+
+            .tw-careers-image-wrapper.tw-careers-side-image .tw-careers-image {
+                height: 240px;
+            }
+
+            .tw-careers-view-all-button {
+                max-width: 340px;
+                padding: 16px 40px;
+                font-size: 1.125rem;
+            }
+
+            .tw-careers-roles-header {
+                margin-bottom: 48px;
+            }
+
+            .tw-careers-roles-title {
+                font-size: 3rem;
+            }
+
+            .tw-careers-roles-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .tw-careers-table-header-cell {
+                padding: 24px 32px;
+                font-size: 1rem;
+            }
+
+            .tw-careers-table-cell {
+                padding: 24px 32px;
+                font-size: 1.0625rem;
+            }
+
+            .tw-careers-modal-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+	<div id="nav-placeholder"></div>
+        <script src="./utils/loadnav.js"></script>
+    <div class="tw-careers-wrapper">
+        <div class="tw-careers-container">
+            
+            <div class="tw-careers-hero">
+                <div class="tw-careers-hero-content">
+                    <div class="tw-careers-hero-title">Shape the Future<br>of Finance with Us</div>
+                </div>
+            </div>
+
+            <div class="tw-careers-content-wrapper">
+                
+                <div class="tw-careers-culture-section">
+                    <div class="tw-careers-culture-title">Our Culture of Impact</div>
+                    <div class="tw-careers-culture-subtitle">
+                        We're not just colleagues – we're dreamers, doers, and believers united by a shared purpose.
+                    </div>
+                </div>
+
+                <div class="tw-careers-gallery">
+                    <div class="tw-careers-image-wrapper tw-careers-main-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team celebration" class="tw-careers-image">
+                    </div>
+                    <div class="tw-careers-image-wrapper tw-careers-side-image">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80" alt="Team collaboration" class="tw-careers-image">
+                    </div>
+                    <div class="tw-careers-image-wrapper tw-careers-side-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80" alt="Office culture" class="tw-careers-image">
+                    </div>
+                </div>
+
+                <a href="#" class="tw-careers-view-all-button">View All Images</a>
+
+                <div class="tw-careers-roles-section">
+                    <div class="tw-careers-roles-header">
+                        <div class="tw-careers-roles-title">Open Roles</div>
+                        <div class="tw-careers-roles-subtitle">
+                            If you're passionate about finance, we want you!
+                        </div>
+                    </div>
+
+                    <div class="tw-careers-table-wrapper">
+                        <table class="tw-careers-table">
+                            <thead class="tw-careers-table-header">
+                                <tr>
+                                    <th class="tw-careers-table-header-cell">Position</th>
+                                    <th class="tw-careers-table-header-cell">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Chief Financial Officer</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('cfo')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Business Development Executive</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('bde')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Claims Executive</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('claims')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Senior Manager - Life Insurance</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('manager')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Customer Relationship Manager</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('crm')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Receptionist</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('receptionist')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Executive Assistant to Director</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('assistant')">View Details</a>
+                                    </td>
+                                </tr>
+                                <tr class="tw-careers-table-row">
+                                    <td class="tw-careers-table-cell">Renewal Executive</td>
+                                    <td class="tw-careers-table-cell">
+                                        <a class="tw-careers-view-details-link" onclick="openModal('renewal')">View Details</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="tw-careers-modal-overlay" id="jobModal">
+        <div class="tw-careers-modal">
+            <div class="tw-careers-modal-header">
+                <div class="tw-careers-modal-title" id="modalJobTitle"></div>
+                <div class="tw-careers-modal-location">Surat, Gujarat</div>
+                <button class="tw-careers-modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="tw-careers-modal-body" id="modalJobContent">
+                <!-- Content will be inserted here -->
+            </div>
+            <div class="tw-careers-modal-footer">
+                <button class="tw-careers-modal-button tw-careers-modal-button-primary">Apply Now</button>
+                <button class="tw-careers-modal-button tw-careers-modal-button-secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const jobData = {
+            cfo: {
+                title: 'Chief Financial Officer',
+                description: 'Lead our financial strategy and operations as we scale our wealth management business.',
+                responsibilities: [
+                    'Oversee all financial operations and direct corporate financial planning',
+                    'Develop and implement financial strategies aligned with business goals',
+                    'Manage relationships with investors, auditors, and financial institutions',
+                    'Ensure compliance with regulatory requirements',
+                    'Lead the finance and accounting team'
+                ],
+                qualifications: [
+                    'CA/MBA in Finance with 10+ years of experience',
+                    'Strong knowledge of wealth management and financial services',
+                    'Proven track record in financial planning and analysis',
+                    'Excellent leadership and communication skills',
+                    'Experience with regulatory compliance'
+                ]
+            },
+            bde: {
+                title: 'Business Development Executive',
+                description: 'Drive business growth by identifying new opportunities and building lasting client relationships.',
+                responsibilities: [
+                    'Identify and pursue new business opportunities',
+                    'Build and maintain strong client relationships',
+                    'Conduct market research and competitive analysis',
+                    'Meet monthly and quarterly sales targets',
+                    'Represent company at industry events and networking functions'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree in Business, Marketing, or related field',
+                    '2-5 years of sales experience in financial services',
+                    'Strong communication and negotiation skills',
+                    'Self-motivated with a results-driven approach',
+                    'Knowledge of wealth management products'
+                ]
+            },
+            claims: {
+                title: 'Claims Executive',
+                description: 'Manage and process insurance claims efficiently to ensure client satisfaction.',
+                responsibilities: [
+                    'Process insurance claims accurately and timely',
+                    'Coordinate with insurance companies and clients',
+                    'Verify claim documentation and eligibility',
+                    'Maintain detailed records of all claims',
+                    'Resolve claim disputes and issues'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree in any discipline',
+                    '1-3 years of experience in insurance claims',
+                    'Strong attention to detail and analytical skills',
+                    'Good communication and customer service skills',
+                    'Knowledge of insurance products and claim procedures'
+                ]
+            },
+            manager: {
+                title: 'Senior Manager - Life Insurance',
+                description: 'Lead our life insurance division and drive growth through strategic planning and team leadership.',
+                responsibilities: [
+                    'Manage life insurance product portfolio',
+                    'Develop and implement sales strategies',
+                    'Lead and mentor the insurance sales team',
+                    'Build relationships with insurance providers',
+                    'Monitor market trends and competitor activities'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree with IRDA certification',
+                    '5-8 years of experience in life insurance',
+                    'Proven track record in sales and team management',
+                    'Strong knowledge of life insurance products',
+                    'Excellent leadership and interpersonal skills'
+                ]
+            },
+            crm: {
+                title: 'Customer Relationship Manager',
+                description: 'Build and nurture long-term relationships with our valued clients.',
+                responsibilities: [
+                    'Manage client portfolios and relationships',
+                    'Address client queries and concerns promptly',
+                    'Conduct regular client reviews and meetings',
+                    'Identify cross-selling and upselling opportunities',
+                    'Ensure high levels of client satisfaction and retention'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree in Business or related field',
+                    '2-4 years of experience in client relationship management',
+                    'Excellent communication and interpersonal skills',
+                    'Strong problem-solving abilities',
+                    'Knowledge of financial products and services'
+                ]
+            },
+            receptionist: {
+                title: 'Receptionist',
+                description: 'Be the first point of contact and create a welcoming environment for our clients.',
+                responsibilities: [
+                    'Greet and assist visitors and clients',
+                    'Answer and direct phone calls professionally',
+                    'Manage appointment schedules and meeting rooms',
+                    'Handle incoming and outgoing correspondence',
+                    'Maintain reception area and office supplies'
+                ],
+                qualifications: [
+                    'High school diploma or equivalent',
+                    '1-2 years of receptionist experience',
+                    'Professional appearance and demeanor',
+                    'Excellent communication and organizational skills',
+                    'Proficiency in MS Office applications'
+                ]
+            },
+            assistant: {
+                title: 'Executive Assistant to Director',
+                description: 'Provide high-level administrative support to the Director and help manage day-to-day operations.',
+                responsibilities: [
+                    'Manage Director\'s calendar and schedule',
+                    'Coordinate meetings and prepare meeting materials',
+                    'Handle confidential information and correspondence',
+                    'Assist with special projects and presentations',
+                    'Liaise with internal and external stakeholders'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree preferred',
+                    '3-5 years of executive assistant experience',
+                    'Exceptional organizational and time management skills',
+                    'Strong written and verbal communication',
+                    'Ability to work independently and handle pressure'
+                ]
+            },
+            renewal: {
+                title: 'Renewal Executive',
+                description: 'Manage policy renewals and ensure client retention through excellent service.',
+                responsibilities: [
+                    'Process policy renewal applications',
+                    'Contact clients for renewal confirmations',
+                    'Update policy information and documentation',
+                    'Address renewal-related queries and concerns',
+                    'Maintain renewal records and databases'
+                ],
+                qualifications: [
+                    'Bachelor\'s degree in any discipline',
+                    '1-3 years of experience in insurance operations',
+                    'Good communication and follow-up skills',
+                    'Detail-oriented with strong organizational abilities',
+                    'Knowledge of insurance policies and procedures'
+                ]
+            }
+        };
+
+        function openModal(jobId) {
+            const job = jobData[jobId];
+            if (!job) return;
+
+            document.getElementById('modalJobTitle').textContent = job.title;
+            
+            const content = `
+                <div class="tw-careers-modal-section">
+                    <div class="tw-careers-modal-section-title">About the Role</div>
+                    <div class="tw-careers-modal-text">${job.description}</div>
+                </div>
+                
+                <div class="tw-careers-modal-section">
+                    <div class="tw-careers-modal-section-title">Key Responsibilities</div>
+                    <ul class="tw-careers-modal-list">
+                        ${job.responsibilities.map(item => `<li class="tw-careers-modal-list-item">${item}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="tw-careers-modal-section">
+                    <div class="tw-careers-modal-section-title">Qualifications</div>
+                    <ul class="tw-careers-modal-list">
+                        ${job.qualifications.map(item => `<li class="tw-careers-modal-list-item">${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            document.getElementById('modalJobContent').innerHTML = content;
+            document.getElementById('jobModal').classList.add('tw-careers-modal-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('jobModal').classList.remove('tw-careers-modal-active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('jobModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+  <footer id="footer-placeholder"></footer>
+     <script src="./utils/loadfooter.js"></script>
+</body>
+</html>

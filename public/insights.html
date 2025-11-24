@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Funds Insights Article</title>
+   <link rel="stylesheet" href="./style.css">
+    <style>
+        .insights-article-wrapper * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .insights-article-wrapper {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            width: 100%;
+            padding:0 1rem;
+        }
+
+        .insights-article-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        .insights-article-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 16px 0;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .insights-article-subtitle {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .insights-article-hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .insights-article-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 32px 0 16px;
+            color: #000;
+        }
+
+        .insights-article-text {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .insights-article-emphasis {
+            font-style: italic;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .insights-article-bold-statement {
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 24px 0;
+        }
+
+        .insights-article-list {
+            margin: 20px 0 20px 24px;
+            font-size: 1rem;
+            list-style-position: outside;
+        }
+
+        .insights-article-list-item {
+            margin-bottom: 10px;
+            color: #2d3748;
+            padding-left: 8px;
+        }
+
+        .insights-article-chart-container {
+            margin: 32px 0;
+            padding: 20px 16px;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+
+        .insights-article-chart-title {
+            background: #059970;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .insights-article-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            margin: 24px 0;
+            padding: 0 8px;
+            position: relative;
+            gap: 4px;
+        }
+
+        .insights-article-bar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            min-width: 0;
+        }
+
+        .insights-article-bar-fill {
+            width: 100%;
+            background: linear-gradient(180deg, #059970 0%, #059990 100%);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            min-height: 30px;
+        }
+
+        .insights-article-bar-value {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .insights-article-bar-label {
+            margin-top: 8px;
+            font-size: 0.65rem;
+            text-align: center;
+            color: #4a5568;
+            font-weight: 500;
+            line-height: 1.2;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2px;
+        }
+
+        .insights-article-legend {
+            margin-top: 20px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #059970;
+            text-align: center;
+        }
+
+        .insights-article-legend-text {
+            color: ;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .insights-article-cta-link {
+            color: #059990;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .insights-article-cta-link:hover {
+            text-decoration: underline;
+        }
+
+        .insights-article-disclaimer {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 32px;
+            font-style: italic;
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            .insights-article-container {
+                max-width: 720px;
+                padding: 40px 32px;
+            }
+
+            .insights-article-title {
+                font-size: 2.25rem;
+                margin-bottom: 20px;
+            }
+
+            .insights-article-subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 40px;
+            }
+
+            .insights-article-hero-image {
+                margin-bottom: 40px;
+            }
+
+            .insights-article-section-title {
+                font-size: 1.75rem;
+                margin: 40px 0 20px;
+            }
+
+            .insights-article-text {
+                font-size: 1.0625rem;
+                margin-bottom: 24px;
+            }
+
+            .insights-article-list {
+                margin: 24px 0 24px 32px;
+                font-size: 1.0625rem;
+            }
+
+            .insights-article-list-item {
+                margin-bottom: 12px;
+            }
+
+            .insights-article-chart-container {
+                margin: 40px 0;
+                padding: 24px 20px;
+            }
+
+            .insights-article-chart {
+                height: 250px;
+                padding: 0 16px;
+                gap: 8px;
+            }
+
+            .insights-article-bar-fill:nth-child(1) {
+                height: 50px !important;
+            }
+
+            .insights-article-bar-label {
+                font-size: 0.75rem;
+                min-height: 44px;
+            }
+
+            .insights-article-bar-value {
+                font-size: 0.8rem;
+                top: -26px;
+            }
+
+            .insights-article-chart-title {
+                font-size: 0.9375rem;
+            }
+
+            .insights-article-legend-text {
+                font-size: 0.875rem;
+            }
+
+            .insights-article-bold-statement {
+                font-size: 1.0625rem;
+            }
+
+            .insights-article-cta-link {
+                font-size: 1.0625rem;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .insights-article-container {
+                max-width: 800px;
+                padding: 48px 40px;
+            }
+
+            .insights-article-title {
+                font-size: 2.5rem;
+                margin-bottom: 24px;
+            }
+
+            .insights-article-subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 48px;
+            }
+
+            .insights-article-hero-image {
+                margin-bottom: 48px;
+            }
+
+            .insights-article-section-title {
+                font-size: 1.875rem;
+                margin: 48px 0 24px;
+            }
+
+            .insights-article-text {
+                font-size: 1.125rem;
+                margin-bottom: 24px;
+            }
+
+            .insights-article-list {
+                margin: 24px 0 24px 40px;
+                font-size: 1.125rem;
+            }
+
+            .insights-article-chart-container {
+                margin: 48px 0;
+                padding: 28px 24px;
+            }
+
+            .insights-article-chart {
+                height: 300px;
+                padding: 0 20px;
+                gap: 12px;
+            }
+
+            .insights-article-bar-label {
+                font-size: 0.875rem;
+                min-height: 48px;
+            }
+
+            .insights-article-bar-value {
+                font-size: 0.875rem;
+                top: -28px;
+            }
+
+            .insights-article-chart-title {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+
+            .insights-article-legend {
+                padding: 16px;
+            }
+
+            .insights-article-legend-text {
+                font-size: 0.875rem;
+            }
+
+            .insights-article-bold-statement {
+                font-size: 1.125rem;
+                margin: 32px 0;
+            }
+
+            .insights-article-cta-link {
+                font-size: 1.125rem;
+            }
+
+            .insights-article-disclaimer {
+                margin-top: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+		 	  <div id="nav-placeholder"></div>
+	 	  <script src="./utils/loadnav.js"></script>
+    <div class="insights-article-wrapper">
+        <article class="insights-article-container">
+            <div class="insights-article-title">Mutual Funds Are Very Risky</div>
+            
+            <div class="insights-article-subtitle">
+                if you don't understand what the real risk is. Here's how poor strategy, panic, or inaction can cost you more than the market ever could.
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80" alt="Growth concept with coins and plant" class="insights-article-hero-image">
+
+            <div class="insights-article-section-title">If markets are unpredictable, does that make mutual funds dangerous?</div>
+
+            <div class="insights-article-text">
+                If you've ever panicked in a market crash or avoided mutual funds because you've been told they're very risky or like "gambling", this blog is for you.
+            </div>
+
+            <div class="insights-article-text">Let's break this myth once and for all.</div>
+
+            <div class="insights-article-section-title">What People Think Mutual Fund Risk Means:</div>
+
+            <div class="insights-article-text">When people say "risky," they often picture:</div>
+
+            <ul class="insights-article-list">
+                <li class="insights-article-list-item">Losing all their money overnight</li>
+                <li class="insights-article-list-item">Stock markets in free fall</li>
+                <li class="insights-article-list-item">Headlines screaming "Recession Incoming!"</li>
+                <li class="insights-article-list-item">Uncle Sharma's friend's cousin who "lost lakhs"</li>
+            </ul>
+
+            <div class="insights-article-text">
+                It's easy to get spooked. We always think about the worst-case scenarios first, it's understandable. But that's not the whole story. You lose money when you don't analyse the market and its trends, and when you don't know what is actually risky.
+            </div>
+
+            <div class="insights-article-section-title">So What's the Real Threat to Your Wealth?</div>
+
+            <div class="insights-article-text">
+                The risk is not in the markets. The risk is in how you respond to them. The real danger is not volatility, panic selling, or poor strategy. And here's the biggest plot twist, the real risk is not investing at all. Yes, doing nothing can actually be the riskiest move for your long term growth.
+            </div>
+
+            <div class="insights-article-section-title">What's actually risky then?</div>
+
+            <div class="insights-article-text insights-article-emphasis">
+                The risk is not in mutual funds. It's in mismanagement.
+            </div>
+
+            <div class="insights-article-text">
+                You may have avoided mutual funds because they felt risky. So you kept your money in a savings account earning 3%. But here's the reality, inflation is at 6%, your money is actually losing value every year.
+            </div>
+
+            <div class="insights-article-text">
+                By not investing, you're not avoiding risk — you're just accepting a different kind of loss. Over time, your purchasing power goes down. Keeping your money in just a savings account? We'd argue that's far riskier than a well-chosen mutual fund. A well-chosen mutual fund may fluctuate in the short term but it's built to grow your wealth in the long term and to keep up with or outpace inflation.
+            </div>
+
+            <div class="insights-article-text">
+                At least with mutual funds: You get liquidity, transparency and
+                steady long-term growth. And if you're worried about making the
+                right choices, it takes just minutes. Talk to a TRUE wealth advisor who
+                makes money matters feel like second nature.
+            </div>
+
+            <div class="insights-article-text insights-article-bold-statement">
+                Because in the long run not investing wisely is the biggest risk of all.
+            </div>
+
+            <div class="insights-article-chart-container">
+                <div class="insights-article-chart-title">Comparative Annual Returns Across Investment Options</div>
+                
+                <div class="insights-article-chart">
+                    <div class="insights-article-bar">
+                        <div class="insights-article-bar-fill" style="height: 40px;">
+                            <span class="insights-article-bar-value">(3-4%)</span>
+                        </div>
+                        <div class="insights-article-bar-label">Savings Accounts</div>
+                    </div>
+                    <div class="insights-article-bar">
+                        <div class="insights-article-bar-fill" style="height: 75px;">
+                            <span class="insights-article-bar-value">(6-8%)</span>
+                        </div>
+                        <div class="insights-article-bar-label">Fixed Deposits</div>
+                    </div>
+                    <div class="insights-article-bar">
+                        <div class="insights-article-bar-fill" style="height: 130px;">
+                            <span class="insights-article-bar-value">(12-15%)</span>
+                        </div>
+                        <div class="insights-article-bar-label">Normal Mutual Funds</div>
+                    </div>
+                    <div class="insights-article-bar">
+                        <div class="insights-article-bar-fill" style="height: 170px;">
+                            <span class="insights-article-bar-value">(16-18%)</span>
+                        </div>
+                        <div class="insights-article-bar-label">Mutual Funds by
+                        TRUE</div>
+                    </div>
+                </div>
+
+                <div class="insights-article-legend">
+                    <span class="insights-article-legend-text">Types of Investment Options</span>
+                </div>
+            </div>
+
+            <div class="insights-article-section-title">So, Are Mutual Funds Risky?</div>
+
+            <div class="insights-article-text">
+                Sure — but so is driving a car. But just because it is risky,
+                you don't stop driving. You wear a seatbelt, follow the rules,
+                and trust a map. Think of True as that map. Let's take the fear
+                out of finance. Let's grow your wealth, the smart way.
+            </div>
+
+            <div class="insights-article-text" style="margin-top: 32px;">
+                To know more about Mutual Funds:<br>
+                <a href="https://www.investopedia.com/terms/m/mutualfund.asp" class="insights-article-cta-link">click here</a>
+            </div>
+
+            <div class="insights-article-disclaimer">
+                Standard T&C apply*
+            </div>
+
+            <div class="insights-article-disclaimer">
+                *Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+            </div>
+        </article>
+    </div>
+     <div id="footer-placeholder"></div>
+    	  <script src="./utils/loadfooter.js"></script>
+</body>
+</html>

@@ -1,13 +1,21 @@
+window.addEventListener("DOMContentLoaded", () => {
+
 const counters=document.querySelectorAll(".counter span")
-const counterContainer=document.getElementById("counters");
+const counterContainer=document.getElementById("counter-container");
 const cardContainer=document.getElementById("cardsContainer");
 const faqCards=document.querySelectorAll(".faq-card")
 const showMoreContent=document.querySelectorAll(".timeline-content")
 const valueCards=document.querySelectorAll(".value-card")
+const Form=document.getElementById("mform");
+
 let isActive=false;
+
+
+
 window.addEventListener("scroll",()=>{
-  
-  if(pageYOffset> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
+  console.log("COUNTER:", counterContainer);
+console.log("TYPE:", typeof counterContainer);
+  if(scrollY> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
     counters.forEach(c=>{
       const target=c.dataset.target;
       let count=0;
@@ -110,5 +118,24 @@ const observer=new IntersectionObserver((entries)=>{
   	);
   	observer.observe(card);
   })
+  console.log("SENDING REQUEST TO:", "http://localhost:8000/form");
   
+ Form.addEventListener("submit",async()=>{
+ 	Form.preventDefault();
+ 	console.log("form is submited successfully")
+ 	const formData= new FormData(Form);
+ 	const jsonData=Object.fromEntries(formData);
+ 	
+ 	const res=await fetch("http://localhost:8000/form",{
+ 		method:"POST",
+ 		headers:{
+ 			"Content-Type":"application/json"
+ 		},
+ 		body:JSON.stringify(jsonData)
+ 	})
+    console.log("RESPONSE:", res.status);
+ 	const output=await res.json();
+ 	console.log(output);
+ });
  
+});

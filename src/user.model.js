@@ -12,6 +12,9 @@ const userSchema=new mongoose.Schema({
   number:{
    type:Number,
    required:true,
+  },
+  message:{
+    type:String,
   }
 },{timestamps:true})
 
