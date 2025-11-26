@@ -10,7 +10,8 @@ let isActive=false;
 
 
 window.addEventListener("scroll",()=>{
- if(counterContainer){ if(scrollY> counterContainer.offsetTop- counterContainer.offsetHeight-200 && isActive===false){
+ if(counterContainer){ if(scrollY> counterContainer.offsetTop-
+ counterContainer.offsetHeight-200 && isActive===false){
     counters.forEach(c=>{
       const target=c.dataset.target;
       let count=0;
@@ -116,6 +117,7 @@ const observer=new IntersectionObserver((entries)=>{
             showPopup('error', 'Network error. Please check your connection.');
         }
     });
+   
 }
 
 function showPopup(type, message = '') {
@@ -172,7 +174,117 @@ document.getElementById('contactPopup')?.addEventListener('click', function(e) {
         closePopup();
     }
 });
- 
+ let quickContactInterval;
+let popupCount = 0;
+const maxPopups = 4; // Maximum times to show popup per session
+
+window.addEventListener('load', function() {
+    // Check if user already submitted
+    const hasSubmitted = sessionStorage.getItem('quickContactSubmitted');
+    
+    if (!hasSubmitted) {
+        // Start showing popup every 10 seconds
+        quickContactInterval = setInterval(function() {
+            // Don't show if already at max count
+            if (popupCount < maxPopups) {
+                showQuickContactPopup();
+                popupCount++;
+            } else {
+                // Stop showing after max attempts
+                clearInterval(quickContactInterval);
+            }
+        }, 9000); // 10 seconds
+    }
+});
+
+
+
+// Handle form submission
+const quickForm = document.getElementById('quickContactForm');
+if (quickForm) {
+    quickForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = quickForm.querySelector('.tw-quick-contact-submit');
+        const originalText = submitBtn.textContent;
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        const formData = new FormData(quickForm);
+        const jsonData = Object.fromEntries(formData);
+        
+        try {
+            const res = await fetch("https://wms-um5i.onrender.com/form", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(jsonData)
+            });
+            
+            const output = await res.json();
+            
+            if (res.ok) {
+                // Success
+                submitBtn.textContent = '✓ Submitted!';
+                submitBtn.style.background = '#10b981';
+                
+                // Mark as submitted in session storage
+                sessionStorage.setItem('quickContactSubmitted', 'true');
+                
+                // Stop the interval
+                clearInterval(quickContactInterval);
+                
+                // Close popup after 2 seconds
+                setTimeout(() => {
+                    closeQuickContactPopup();
+                    quickForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                }, 2000);
+                
+            } else {
+                // Error
+                submitBtn.textContent = '✕ Error - Try Again';
+                submitBtn.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                }, 2000);
+            }
+            
+        } catch (error) {
+            // Network error
+            submitBtn.textContent = '✕ Network Error';
+            submitBtn.style.background = '#ef4444';
+            
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+            }, 2000);
+        }
+    });
+}
+
+// Close popup when clicking outside
+document.getElementById('quickContactPopup')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeQuickContactPopup();
+    }
+});
+
+// Close popup with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeQuickContactPopup();
+    }
+});
 });
 
 	const cardContainer=document.getElementById("cardsContainer");
@@ -210,4 +322,15 @@ function toggleTlText(cont){
 		}
 	})
 	  	cont.classList.toggle("active")
+}
+function showQuickContactPopup() {
+    const popup = document.getElementById('quickContactPopup');
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickContactPopup() {
+    const popup = document.getElementById('quickContactPopup');
+    popup.classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
