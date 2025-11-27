@@ -1,10 +1,58 @@
-window.addEventListener("DOMContentLoaded", () => {
 
 const counters=document.querySelectorAll(".counter span")
 const counterContainer=document.getElementById("counter-container");
 const valueCards=document.querySelectorAll(".value-card")
 const Form=document.getElementById("mform");
+const cardContainer=document.getElementById("cardsContainer");
+const faqCards=document.querySelectorAll(".faq-card")
+const showMoreContent=document.querySelectorAll(".timeline-content")
 
+
+
+function scrollCards(dir){
+  const scrollAmount=400;
+  if(dir=="left"){
+    cardContainer.scrollBy({
+      left:-scrollAmount,
+      behaviour:"smooth",
+    });
+  }else{
+   cardContainer.scrollBy({
+      left:scrollAmount,
+      behaviour:"smooth",
+    });
+  }
+}
+
+function toggleFAQ(card){
+  faqCards.forEach((c)=>{
+    if(c!==card){
+      c.classList.remove("active");
+    }
+  });
+  card.classList.toggle("active");
+}
+
+
+function toggleTlText(cont){
+	showMoreContent.forEach(c=>{
+		if(c!==cont){
+			c.classList.remove("active")
+		}
+	})
+	  	cont.classList.toggle("active")
+}
+function showQuickContactPopup() {
+    const popup = document.getElementById('quickContactPopup');
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickContactPopup() {
+    const popup = document.getElementById('quickContactPopup');
+    popup.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
 let isActive=false;
 
 
@@ -193,7 +241,7 @@ window.addEventListener('load', function() {
                 // Stop showing after max attempts
                 clearInterval(quickContactInterval);
             }
-        }, 9000); // 10 seconds
+        }, 10000); // 10 seconds
     }
 });
 
@@ -223,9 +271,8 @@ if (quickForm) {
                 },
                 body: JSON.stringify(jsonData)
             });
-            
             const output = await res.json();
-            
+            console.log(output);
             if (res.ok) {
                 // Success
                 submitBtn.textContent = '✓ Submitted!';
@@ -285,52 +332,6 @@ document.addEventListener('keydown', function(e) {
         closeQuickContactPopup();
     }
 });
-});
-
-	const cardContainer=document.getElementById("cardsContainer");
-const faqCards=document.querySelectorAll(".faq-card")
-const showMoreContent=document.querySelectorAll(".timeline-content")
-function scrollCards(dir){
-  const scrollAmount=400;
-  if(dir=="left"){
-    cardContainer.scrollBy({
-      left:-scrollAmount,
-      behaviour:"smooth",
-    });
-  }else{
-   cardContainer.scrollBy({
-      left:scrollAmount,
-      behaviour:"smooth",
-    });
-  }
-}
-
-function toggleFAQ(card){
-  faqCards.forEach((c)=>{
-    if(c!==card){
-      c.classList.remove("active");
-    }
-  });
-  card.classList.toggle("active");
-}
 
 
-function toggleTlText(cont){
-	showMoreContent.forEach(c=>{
-		if(c!==cont){
-			c.classList.remove("active")
-		}
-	})
-	  	cont.classList.toggle("active")
-}
-function showQuickContactPopup() {
-    const popup = document.getElementById('quickContactPopup');
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeQuickContactPopup() {
-    const popup = document.getElementById('quickContactPopup');
-    popup.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+	
