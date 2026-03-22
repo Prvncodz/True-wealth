@@ -1574,15 +1574,27 @@ body{
 
 /* Desktop (Matches the screenshot layout: 3 top, 2 bottom) */
 @media (min-width: 1024px) {
+    
+    .hero-page{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .hero-page .text{
+        max-width: 40vw;
+        width: 100%;
+        text-wrap: wrap;
+        text-align: center;   
+        margin-top:10px;  
+    }
     .hero-page .text h1{
-     font-size:4rem;
-     min-width: 50vw;
-     width: 100%;
-     text-wrap: wrap;
+        font-size:4rem;
+        color:#ffffff;
     } 
     .hero-page .text p{
         font-size: 1.5rem;
         text-wrap: wrap;
+        color:#ffffff;
     }
 	.value-card {
 		/* 3 cards per row on desktop */
