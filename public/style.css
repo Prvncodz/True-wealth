@@ -1574,12 +1574,7 @@ body{
 
 /* Desktop (Matches the screenshot layout: 3 top, 2 bottom) */
 @media (min-width: 1024px) {
-    
-    .hero-page{
-        display: flex;
-        align-items: center;
-        justify-content:center;
-    }
+
     .hero-page .text{
         max-width: 40vw;
         width: 100%;
