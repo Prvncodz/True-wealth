@@ -175,8 +175,8 @@ body{
   width:100%;
   position:relative;
   top:0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1)  0%,
-           #032539 100%),url("./assets/bg.jpg") center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1)  0%,
+           #007567 100%),url("./assets/bg.jpg") center/cover no-repeat;
   z-index: 2;
 }
 
